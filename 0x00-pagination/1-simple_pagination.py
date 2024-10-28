@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-This module contains a Server class to paginate a dataset of popular
-baby names.
+This module contains a Server class to paginate a dataset of
+popular baby names.
 """
 
 
@@ -18,8 +18,8 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
         page_size (int): The number of items per page.
 
     Returns:
-        Tuple[int, int]: A tuple containing the start index and
-        end index for the page.
+        Tuple[int, int]: A tuple containing the start index and end index for
+        the page.
     """
     start_index = (page - 1) * page_size
     end_index = start_index + page_size
@@ -54,10 +54,12 @@ class Server:
         Returns:
             List[List]: A list of rows representing the requested page.
         """
-        assert isinstance(page, int) and page > 0,
-        "Page must be a positive integer."
-        assert isinstance(page_size, int) and page_size > 0,
-        "Page size must be a positive integer."
+        assert isinstance(page, int) and page > 0, (
+            "Page must be a positive integer."
+        )
+        assert isinstance(page_size, int) and page_size > 0, (
+            "Page size must be a positive integer."
+        )
 
         start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
